@@ -1,8 +1,19 @@
-const ToDoList = () => {
+import TodoListItem from "./todo-list-item";
+
+const ToDoList = ({todos}) => {
+
+    const elements = todos.map((item) => {
+    const {id, ...itemProps} = item;
+
+        return (
+            <li key={id}>
+                <TodoListItem {...itemProps}/>
+            </li>
+        )
+    })
     return (
         <ul>
-            <li>Learn React</li>
-            <li>Make Coffee</li>
+            {elements}
         </ul>
     );
 };
